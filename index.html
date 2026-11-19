@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hair by Sylwia Habdas. Kameralny salon fryzjerski na warszawskim Mokotowie.">
+    <title>Hair by Sylwia Habdas · Warszawa Mokotów</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+    <header class="masthead" id="start" tabindex="-1">
+      <div class="frame masthead-layout">
+        <p class="address">Warszawa, Mokotów</p>
+        <a class="brand" href="#start" aria-label="Hair by Habdas Concept, początek strony">
+          <img src="./assets/habdas-wordmark.png" alt="" width="647" height="242">
+        </a>
+        <nav aria-label="Menu główne">
+          <a class="text-link" href="#o-nas">O nas</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="tresc" tabindex="-1">
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 class="frame hero-title" id="hero-title"><span>Prawdziwa elegancja</span> <span>nie potrzebuje rozgłosu.</span></h1>
+
+        <div class="scene">
+          <picture class="scene-room">
+            <source media="(max-width: 42rem)" srcset="./assets/hero-room-mobile.webp" width="752" height="896">
+            <img src="./assets/hero-room.webp" alt="Światło z okna odbite w lustrze nad fotelami w salonie." width="1900" height="830" fetchpriority="high">
+          </picture>
+
+          <div class="film" id="kadr">
+            <div class="film-window">
+              <img src="./assets/film-poster.webp" alt="Kobieta o długich blond włosach odwraca się przed białymi drzwiami." width="576" height="1024">
+              <video id="salon-film" src="./assets/film_2_original_vertical.mp4" poster="./assets/film-poster.webp" width="576" height="1024" preload="none" muted playsinline aria-hidden="true"></video>
+            </div>
+            <button class="film-control" type="button" aria-controls="salon-film" aria-label="Odtwórz film" title="Odtwórz film" hidden>
+              <span class="film-icon" aria-hidden="true"></span>
+              <span class="film-label visually-hidden">Odtwórz film</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="frame hero-note">
+          <p>Salon fryzjerski na Mokotowie</p>
+          <a class="text-link" href="#o-nas">Poznaj Sylwię</a>
+        </div>
+      </section>
+
+      <section class="about" id="o-nas" aria-label="O nas" tabindex="-1">
+        <section class="artist" aria-labelledby="artist-title">
+          <div class="frame artist-layout">
+            <div class="artist-copy">
+              <h2 id="artist-title" data-reveal>Artysta</h2>
+              <p class="experience" data-reveal>Ponad <span>20 lat</span><br>doświadczenia</p>
+              <p data-bio data-reveal>Nazywam się Sylwia Habdas. Od ponad dwudziestu lat tworzę fryzury dla kobiet, które cenią naturalność, jakość i ponadczasowy styl.</p>
+            </div>
+            <figure class="artist-portrait" data-reveal="image">
+              <img src="./assets/sylwia-habdas.webp" alt="Czarno-biały portret Sylwii Habdas z nożyczkami przy twarzy." width="1040" height="1560" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </section>
+
+        <section class="history" aria-labelledby="history-title">
+          <div class="frame editorial-grid history-layout">
+            <h2 id="history-title" data-reveal>Historia</h2>
+            <p class="history-start" data-bio data-reveal>Moja droga zaczęła się od pracy przy sesjach zdjęciowych, pokazach mody i produkcjach telewizyjnych.</p>
+            <figure class="history-photo" data-reveal="image">
+              <img src="./assets/scissors.webp" alt="Nożyczki fryzjerskie na otwartej książce." width="600" height="900" loading="lazy" decoding="async">
+            </figure>
+            <div class="history-account">
+              <p class="statement" data-bio data-reveal>To właśnie tam nauczyłam się patrzeć na włosy jak na część całego wizerunku.</p>
+              <p data-bio data-reveal>Przez lata miałam przyjemność stylizować włosy wielu wyjątkowym kobietom. Wśród nich były Ania Wyszkoni, Małgorzata Rozenek Majdan, Maryla Rodowicz, Edyta Górniak, Halina Mlynkova, Doda, Martyna Wojciechowska i Bogna Sworowska.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="studio" aria-labelledby="studio-title">
+          <div class="frame editorial-grid studio-opening">
+            <h2 id="studio-title" data-reveal>Pracownia</h2>
+            <p data-bio data-reveal>Mimo pracy przy dużych produkcjach i z osobami znanymi od zawsze marzyłam o własnym miejscu. Chciałam stworzyć salon, do którego kobiety będą przychodziły nie tylko po piękne włosy, ale również po spokój, dobrą atmosferę i poczucie, że ktoś naprawdę poświęca im czas.</p>
+          </div>
+
+          <picture class="studio-panorama" data-reveal="image">
+            <source media="(max-width: 42rem)" srcset="./assets/salon-spread-mobile.webp" width="744" height="620">
+            <img src="./assets/salon-spread.webp" alt="Kryształowy żyrandol, zasłony i zdobione lustro w salonie Sylwii." width="1840" height="780" loading="lazy" decoding="async">
+          </picture>
+
+          <div class="frame editorial-grid studio-atelier">
+            <p class="practice" data-bio data-reveal>Nieustannie rozwijam swój warsztat, szkolę się i inspiruję najlepszymi markami oraz światowymi trendami we fryzjerstwie i pielęgnacji. Wierzę, że aby tworzyć rzeczy ponadczasowe, trzeba stale podnosić sobie poprzeczkę i czerpać inspiracje od najlepszych.</p>
+            <figure class="studio-photo" data-reveal="image">
+              <img src="./assets/salon-mirror.webp" alt="Fotele salonu odbite w wysokim, łukowym lustrze." width="720" height="1082" loading="lazy" decoding="async">
+            </figure>
+            <div class="studio-account">
+              <p class="statement" data-bio data-reveal>Tak powstał mój salon.</p>
+              <p data-bio data-reveal>Kameralna przestrzeń inspirowana paryskim stylem, gdzie liczy się jakość, doświadczenie i dbałość o każdy szczegół. Wierzę, że prawdziwa elegancja nie potrzebuje rozgłosu. Jest widoczna w sposobie pracy, w relacji z klientką i w efekcie, który wygląda naturalnie i pozostaje piękny przez długi czas.</p>
+              <p data-bio data-reveal>Specjalizuję się w blondach, refleksach i koloryzacjach, które podkreślają urodę, a nie ją zmieniają. Każdą wizytę zaczynam od rozmowy, ponieważ wierzę, że najpiękniejsza fryzura to taka, w której kobieta czuje się sobą.</p>
+            </div>
+          </div>
+
+          <div class="farewell">
+            <div class="frame farewell-layout">
+              <p class="farewell-title" data-bio data-reveal>Zapraszam Cię do mojego świata.</p>
+              <p data-bio data-reveal>Miejsca stworzonego z pasji, doświadczenia i nieustannego dążenia do najwyższej jakości.</p>
+              <a class="text-link" href="#start">Na górę</a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

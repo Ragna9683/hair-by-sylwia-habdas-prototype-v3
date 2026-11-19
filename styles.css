@@ -1,0 +1,606 @@
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("./assets/fonts/instrument-sans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("./assets/fonts/instrument-serif.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --ivory: #f5f2eb;
+  --beige: #e6ded1;
+  --travertine: #c5b8a4;
+  --olive: #626a57;
+  --charcoal: #292824;
+  --muted: #56534a;
+  --edge: clamp(1.125rem, 4.25vw, 5.5rem);
+  --gap: clamp(0.875rem, 2vw, 2.25rem);
+  --chapter-space: clamp(3.25rem, 8vw, 8.25rem);
+  --episode-title: clamp(2.625rem, 5.1vw, 4.875rem);
+  --display-face: "Instrument Serif", Georgia, serif;
+  --ease-out: cubic-bezier(0.17, 1, 0.3, 1);
+  font-family: "Instrument Sans", "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-size: clamp(1.125rem, 1.3vw, 1.1875rem);
+  line-height: 1.58;
+}
+
+h1, h2, p, figure {
+  margin: 0;
+}
+
+h1, .experience, .statement, .farewell-title {
+  font-family: var(--display-face);
+  font-weight: 400;
+  letter-spacing: -0.022em;
+}
+
+h2 {
+  font-size: var(--episode-title);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  color: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--charcoal);
+  color: var(--ivory);
+}
+
+.frame {
+  max-inline-size: 113rem;
+  margin-inline: auto;
+  padding-inline: var(--edge);
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+
+.skip-link {
+  position: fixed;
+  inset: 0.75rem auto auto 0.75rem;
+  z-index: 2;
+  padding: 0.55rem 1rem;
+  background: var(--charcoal);
+  color: var(--ivory);
+  transform: translateY(calc(-100% - 1rem));
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 2.75rem;
+  min-block-size: 2.75rem;
+  padding-inline: 0.2rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.28em;
+}
+
+.text-link:hover, .text-link:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.masthead-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  min-block-size: clamp(4.625rem, 6.65vw, 6.25rem);
+}
+
+.address,
+.hero-note p {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.brand {
+  display: grid;
+  min-block-size: 2.75rem;
+  place-items: center;
+}
+
+.brand img {
+  inline-size: clamp(7.25rem, 10.6vw, 9.5rem);
+}
+
+.masthead nav {
+  justify-self: end;
+}
+
+.hero {
+  display: grid;
+  grid-template-areas: "scene" "title" "note";
+  padding-block-end: clamp(1.35rem, 3.1vw, 3rem);
+}
+
+.scene {
+  --scene-height: clamp(21rem, 65svh, 45rem);
+  position: relative;
+  grid-area: scene;
+  inline-size: min(calc(100% - 2 * var(--edge)), calc(113rem - 2 * var(--edge)));
+  block-size: var(--scene-height);
+  overflow: clip;
+  margin-inline: auto;
+  background: var(--travertine);
+}
+
+.scene-room {
+  position: absolute;
+  inset: 0;
+}
+
+.scene-room img,
+.studio-panorama img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.scene-room img {
+  object-position: 50% 50%;
+}
+
+.film {
+  position: relative;
+  inset-inline-start: 54.25%;
+  inline-size: calc(var(--scene-height) * 0.5625);
+  block-size: 100%;
+  aspect-ratio: 9 / 16;
+  transform: translateX(-50%);
+  background: var(--beige);
+}
+
+.film-window, .film-window img, .film video {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.film-window {
+  overflow: hidden;
+}
+
+.film-window img, .film video {
+  display: block;
+  object-fit: contain;
+}
+
+.film-control {
+  position: absolute;
+  inset: auto 0.8rem 0.8rem auto;
+  display: grid;
+  inline-size: 2.875rem;
+  block-size: 2.875rem;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ivory);
+  color: var(--charcoal);
+  cursor: pointer;
+}
+
+.film-control:hover {
+  background: var(--beige);
+}
+
+.film-control:focus-visible {
+  outline-offset: -4px;
+}
+
+.film-icon {
+  margin-inline-start: 0.09rem;
+  border: solid transparent;
+  border-width: 0.34rem 0 0.34rem 0.53rem;
+  border-inline-start-color: currentColor;
+}
+
+.film-control[data-playing] .film-icon {
+  inline-size: 0.58rem;
+  block-size: 0.68rem;
+  margin-inline-start: 0;
+  border: solid currentColor;
+  border-width: 0 2px;
+}
+
+.hero-title {
+  grid-area: title;
+  margin-block-start: clamp(1.25rem, 2.6vw, 2.875rem);
+  font-size: clamp(2.375rem, 5.85vw, 6rem);
+  line-height: 0.99;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.hero-note {
+  display: flex;
+  grid-area: note;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 1rem;
+  inline-size: 100%;
+  margin-block-start: clamp(0.5rem, 1.3vw, 1.25rem);
+}
+
+.hero-note a, .farewell a {
+  text-decoration-color: currentColor;
+}
+
+.artist {
+  padding-block: var(--chapter-space);
+  background: var(--beige);
+}
+
+.artist-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 8.3vw, 8.75rem);
+}
+
+.artist-copy p:last-child {
+  max-inline-size: 34ch;
+}
+
+.experience {
+  margin-block: clamp(2rem, 5vw, 4.5rem) clamp(1.35rem, 2.55vw, 2.4rem);
+  font-size: clamp(2.5rem, 4.45vw, 4.875rem);
+  line-height: 0.98;
+}
+
+.experience span {
+  color: var(--olive);
+  white-space: nowrap;
+}
+
+.artist-portrait img {
+  inline-size: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 29%;
+}
+
+.history {
+  padding-block: var(--chapter-space);
+  background: var(--ivory);
+}
+
+.history-layout {
+  align-items: start;
+  row-gap: clamp(2.25rem, 5.5vw, 5.5rem);
+}
+
+.history h2 {
+  grid-column: 1 / 6;
+}
+
+.history-start {
+  grid-column: 8 / -1;
+  align-self: end;
+  max-inline-size: 36ch;
+}
+
+.history-photo {
+  grid-column: 2 / 6;
+  inline-size: min(100%, 22rem);
+}
+
+.history-photo img,
+.studio-photo img {
+  inline-size: 100%;
+}
+
+.history-account {
+  grid-column: 7 / -1;
+  align-self: center;
+  max-inline-size: 50ch;
+}
+
+.statement {
+  margin-block-end: 0.8em;
+  font-size: clamp(1.45rem, 2.48vw, 2.1875rem);
+  line-height: 1.16;
+  text-wrap: pretty;
+}
+
+.studio {
+  background: var(--beige);
+}
+
+.studio-opening, .studio-atelier {
+  padding-block: var(--chapter-space);
+}
+
+.studio-opening {
+  align-items: start;
+}
+
+.studio-opening h2 {
+  grid-column: 1 / 6;
+}
+
+.studio-opening p {
+  grid-column: 7 / -1;
+  max-inline-size: 51ch;
+}
+
+.studio-panorama {
+  position: relative;
+  display: block;
+  aspect-ratio: 92 / 39;
+  overflow: clip;
+  background: var(--travertine);
+}
+
+.studio-panorama img {
+  position: absolute;
+  inset: 0;
+}
+
+.studio-atelier {
+  align-items: start;
+  row-gap: clamp(2.25rem, 6vw, 5.75rem);
+}
+
+.practice {
+  grid-column: 2 / 8;
+  max-inline-size: 46ch;
+}
+
+.studio-photo {
+  grid-column: 1 / 6;
+}
+
+.studio-account {
+  grid-column: 7 / -1;
+  align-self: center;
+  max-inline-size: 52ch;
+}
+
+.studio-account p + p:not(.statement) {
+  margin-block-start: 1.05em;
+}
+
+.farewell {
+  padding-block: clamp(3rem, 7vw, 6.875rem) clamp(2.25rem, 4vw, 4rem);
+  background: var(--olive);
+  color: var(--ivory);
+}
+
+.farewell-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1.1rem var(--gap);
+}
+
+.farewell-title {
+  grid-column: 1 / -1;
+  font-size: clamp(2.625rem, 5.8vw, 6rem);
+  line-height: 0.99;
+  text-wrap: balance;
+}
+
+.farewell-layout p:last-of-type {
+  max-inline-size: 42ch;
+}
+
+.farewell a {
+  justify-self: end;
+}
+
+@media (max-width: 50rem) {
+  .hero-title span {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10.25vw, 4.75rem);
+  }
+}
+
+@media (max-width: 44rem) {
+  .artist-layout, .editorial-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .artist-layout {
+    gap: 1.75rem;
+  }
+
+  .artist-portrait {
+    grid-row: 1;
+    justify-self: end;
+    inline-size: min(93%, 31rem);
+  }
+
+  .experience {
+    margin-block-start: 1.5rem;
+  }
+
+  .history h2, .history-start, .history-photo, .history-account,
+  .studio-opening h2, .studio-opening p, .practice, .studio-photo, .studio-account {
+    grid-column: 1;
+  }
+
+  .history-layout, .studio-opening {
+    row-gap: 1.5rem;
+  }
+
+  .history-photo {
+    inline-size: min(67%, 19rem);
+    margin-block: 0.4rem;
+  }
+
+  .history-account {
+    justify-self: end;
+    inline-size: min(91%, 44ch);
+  }
+
+  .studio-photo {
+    justify-self: end;
+    inline-size: min(78%, 26rem);
+  }
+
+  .studio-atelier {
+    row-gap: 2rem;
+  }
+
+  .farewell-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .farewell-title {
+    text-wrap: pretty;
+  }
+}
+
+@media (max-width: 42rem) {
+  .address {
+    display: none;
+  }
+
+  .brand {
+    grid-column: 2;
+  }
+
+  .scene {
+    --scene-height: clamp(15rem, min(54svh, 112vw), 31rem);
+    inline-size: 100%;
+  }
+
+  .film {
+    inset-inline-start: 52%;
+  }
+
+  .studio-panorama {
+    aspect-ratio: 6 / 5;
+  }
+
+  .film-control {
+    inset-inline-end: 0.55rem;
+    inset-block-end: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .brand, .hero-title {
+    animation: rise 760ms var(--ease-out) both;
+  }
+
+  .hero-title {
+    animation-delay: 160ms;
+  }
+
+  .scene-room, .film-window {
+    animation: reveal-image 1100ms var(--ease-out) both;
+  }
+
+  .film-window {
+    animation-delay: 70ms;
+  }
+
+  [data-reveal=""].is-visible {
+    animation: rise 780ms var(--ease-out) both;
+  }
+
+  [data-reveal="image"].is-visible {
+    animation: reveal-image 1030ms var(--ease-out) both;
+  }
+
+  .text-link, .film-control {
+    transition: background-color 180ms ease, text-decoration-color 180ms ease;
+  }
+
+  @supports (animation-timeline: view()) {
+    .studio-panorama {
+      view-timeline-name: --studio-view;
+    }
+
+    .studio-panorama img {
+      inset-block-start: -4%;
+      block-size: 108%;
+      animation: drift auto linear both;
+      animation-timeline: --studio-view;
+      animation-range: entry 5% exit 95%;
+    }
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0.76; translate: 0 0.65rem; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes reveal-image {
+  from { opacity: 0.84; clip-path: inset(3% 0); }
+  to { opacity: 1; clip-path: inset(0); }
+}
+
+@keyframes drift {
+  from { transform: translateY(3%); }
+  to { transform: translateY(-3%); }
+}
